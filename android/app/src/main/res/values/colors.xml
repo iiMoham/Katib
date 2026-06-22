@@ -1,0 +1,12 @@
+<resources>
+    <color name="katib_teal">#FF0A7B5E</color>
+    <color name="katib_teal_dark">#FF065C46</color>
+    <color name="katib_gold">#FFC8960C</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="charcoal">#FF1C1C1E</color>
+    <color name="key_bg_light">#FFFFFFFF</color>
+    <color name="key_bg_dark">#FF2C2C2E</color>
+    <color name="kb_bg_light">#FFD1D5DB</color>
+    <color name="kb_bg_dark">#FF111111</color>
+    <color name="error_orange">#FFE8730C</color>
+</resources>

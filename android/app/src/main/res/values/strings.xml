@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">كاتب</string>
+
+    <!-- IME -->
+    <string name="ime_label">كاتب — لوحة المفاتيح العربية</string>
+    <string name="ime_settings">إعدادات كاتب</string>
+    <string name="subtype_label_ar">عربي (كاتب)</string>
+
+    <!-- Onboarding -->
+    <string name="welcome_title">كاتب</string>
+    <string name="welcome_subtitle">مساعدك الذكي للكتابة بالعربية</string>
+    <string name="welcome_body">صحّح الأخطاء النحوية والإملائية واحصل على اقتراحات لغوية أثناء الكتابة في أي تطبيق.</string>
+    <string name="get_started">لنبدأ</string>
+
+    <string name="enable_kb_title">فعّل لوحة المفاتيح</string>
+    <string name="enable_kb_step1">١. اضغط «فتح الإعدادات» ثم فعّل «كاتب».</string>
+    <string name="enable_kb_step2">٢. ارجع وبدّل لوحة المفاتيح إلى «كاتب».</string>
+    <string name="open_kb_settings">فتح إعدادات لوحات المفاتيح</string>
+    <string name="pick_kb">اختيار لوحة المفاتيح</string>
+    <string name="done">تم</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_title">لوحة المعلومات</string>
+    <string name="stat_corrections">تصحيحات هذا الأسبوع</string>
+    <string name="stat_suggestions">اقتراحات مقبولة</string>
+    <string name="stat_top_error">أكثر أنواع الأخطاء</string>
+    <string name="try_it">جرّب الكتابة هنا…</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="writing_mode">وضع الكتابة</string>
+    <string name="mode_msa">فصحى</string>
+    <string name="mode_gulf">خليجي</string>
+    <string name="subscription">الاشتراك</string>
+    <string name="manage_sub">إدارة الاشتراك</string>
+    <string name="feedback">إرسال ملاحظة</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+
+    <!-- Paywall -->
+    <string name="paywall_title">كاتب بريميوم</string>
+    <string name="paywall_subtitle">أطلق العنان لكامل قوة المساعد اللغوي</string>
+    <string name="feature_unlimited">تصحيحات غير محدودة</string>
+    <string name="feature_synonyms">٣ اقتراحات ومرادفات موسّعة</string>
+    <string name="feature_gulf">وضع اللهجة الخليجية</string>
+    <string name="feature_stats">إحصاءات الكتابة</string>
+    <string name="feature_priority">أولوية في السرعة</string>
+    <string name="plan_monthly">شهري — 14.99 ر.س</string>
+    <string name="plan_annual">سنوي — 99.99 ر.س (وفّر 44%)</string>
+    <string name="start_trial">ابدأ التجربة المجانية 7 أيام</string>
+    <string name="restore">استعادة المشتريات</string>
+    <string name="premium_active">اشتراكك بريميوم فعّال ✓</string>
+
+    <!-- Keyboard runtime -->
+    <string name="kb_no_access">فعّل «الوصول الكامل» لتشغيل التصحيح</string>
+    <string name="kb_limit_reached">بلغت الحد اليومي المجاني — ترقَّ لبريميوم</string>
+    <string name="kb_thinking">جارٍ التحليل…</string>
+</resources>

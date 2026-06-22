@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base app theme. Compose drives the real UI; this is the launch theme. -->
+    <style name="Theme.Katib" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/katib_teal</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <!-- Theme applied to the keyboard input view. -->
+    <style name="Theme.Katib.Keyboard" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>
