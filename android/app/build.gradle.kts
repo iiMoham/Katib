@@ -34,7 +34,7 @@ android {
                 "proguard-rules.pro"
             )
             // TODO: point this at your deployed proxy (https://...).
-            buildConfigField("String", "PROXY_BASE_URL", "\"https://YOUR-PROXY.up.railway.app\"")
+            buildConfigField("String", "https://katib-production-0352.up.railway.app/", "\"https://katib-production-0352.up.railway.app\"")
         }
     }
 
