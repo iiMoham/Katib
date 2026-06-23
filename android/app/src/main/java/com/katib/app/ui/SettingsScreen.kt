@@ -77,7 +77,7 @@ fun SettingsScreen(
             }) { Text(stringResLabel(R.string.feedback)) }
             HorizontalDivider()
             TextButton(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, "https://katib.app/privacy".toUri())
+                val intent = Intent(Intent.ACTION_VIEW, "https://iimoham.github.io/Katib/docs/privacy-policy.html".toUri())
                 context.startActivity(intent)
             }) { Text(stringResLabel(R.string.privacy_policy)) }
         }
