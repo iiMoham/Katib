@@ -78,19 +78,36 @@ Tests stub the Grok client, so they run **without** an API key or network.
 .\.venv\Scripts\python.exe smoke_test.py
 ```
 
+## AI provider (pick one — two are free)
+
+The proxy talks to any OpenAI-compatible LLM, so you can swap providers with config only:
+
+| `LLM_PROVIDER` | Cost | Get a key | Default model |
+|---|---|---|---|
+| `xai` | paid | https://console.x.ai | `grok-2-latest` |
+| `groq` | **free tier** | https://console.groq.com/keys | `llama-3.3-70b-versatile` |
+| `gemini` | **free tier** | https://aistudio.google.com/apikey | `gemini-2.0-flash` |
+
+To run **free**, set just two vars: `LLM_PROVIDER=gemini` (or `groq`) and `LLM_API_KEY=...`.
+For better Arabic on Groq, try `LLM_MODEL=qwen-2.5-32b`.
+
 ## Configuration (.env)
 
 | Key | Default | Notes |
 |---|---|---|
-| `XAI_API_KEY` | — | from https://console.x.ai |
-| `XAI_BASE_URL` | `https://api.x.ai/v1` | OpenAI-compatible endpoint |
-| `GROK_MODEL` | `grok-2-latest` | change if your account lacks this model |
+| `LLM_PROVIDER` | `xai` | `xai` \| `groq` \| `gemini` |
+| `LLM_API_KEY` | — | key for the chosen provider |
+| `LLM_MODEL` | _(provider default)_ | override the model |
+| `LLM_BASE_URL` | _(provider default)_ | override the endpoint |
+| `JSON_MODE` | `true` | uses `response_format=json_object` |
 | `MAX_TEXT_LENGTH` | `600` | rejects longer text (privacy + cost) |
 | `CACHE_SIZE` | `50` | LRU results cached in memory |
-| `REQUEST_TIMEOUT` | `12` | seconds, per Grok call |
+| `REQUEST_TIMEOUT` | `12` | seconds, per LLM call |
 | `TEMPERATURE` | `0.2` | lower = more deterministic |
 | `PROXY_API_KEY` | _(empty)_ | if set, clients must send `X-Katib-Key` |
 | `CORS_ORIGINS` | `*` | comma-separated; lock down in prod |
+
+> Legacy `XAI_API_KEY` / `GROK_MODEL` still work if `LLM_*` are unset.
 
 ## Privacy
 

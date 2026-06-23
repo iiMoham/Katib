@@ -29,12 +29,15 @@ logger = logging.getLogger("katib")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     settings = get_settings()
-    if not settings.xai_api_key:
-        logger.warning("XAI_API_KEY is not set — /correct will return 502 until configured.")
+    if not settings.resolved_api_key:
+        logger.warning("No LLM API key set — /correct will return 502 until configured.")
     app.state.settings = settings
     app.state.cache = LRUCache(capacity=settings.cache_size)
     app.state.grok = GrokClient(settings)
-    logger.info("Katib proxy v%s ready (model=%s)", __version__, settings.grok_model)
+    logger.info(
+        "Katib proxy v%s ready (provider=%s, model=%s)",
+        __version__, settings.provider, settings.resolved_model,
+    )
     yield
 
 
@@ -62,8 +65,9 @@ def create_app() -> FastAPI:
         return {
             "status": "ok",
             "version": __version__,
-            "model": settings.grok_model,
-            "key_configured": bool(settings.xai_api_key),
+            "provider": settings.provider,
+            "model": settings.resolved_model,
+            "key_configured": bool(settings.resolved_api_key),
             "cache_size": len(app.state.cache) if hasattr(app.state, "cache") else 0,
         }
 

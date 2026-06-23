@@ -1,8 +1,21 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.serialization)
+}
+
+// --- Signing & secrets, loaded from gitignored files (never committed to git) ---
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+val keystoreProperties = Properties().apply {
+    if (keystorePropertiesFile.exists()) load(FileInputStream(keystorePropertiesFile))
+}
+val secretsFile = rootProject.file("secrets.properties")
+val secrets = Properties().apply {
+    if (secretsFile.exists()) load(FileInputStream(secretsFile))
 }
 
 android {
@@ -16,10 +29,20 @@ android {
         versionCode = 1
         versionName = "0.1.0"
 
-        // Base URL of the Katib proxy. Override per build type below.
+        // Defaults (debug-friendly). Release values are set in the release block below.
         buildConfigField("String", "PROXY_BASE_URL", "\"http://10.0.2.2:8000\"")
-        // Optional shared secret matching the proxy's PROXY_API_KEY (empty = none).
         buildConfigField("String", "PROXY_API_KEY", "\"\"")
+    }
+
+    signingConfigs {
+        create("release") {
+            if (keystorePropertiesFile.exists()) {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
     }
 
     buildTypes {
@@ -28,13 +51,22 @@ android {
             buildConfigField("String", "PROXY_BASE_URL", "\"http://10.0.2.2:8000\"")
         }
         release {
+            // Proxy config: defaults to your deployed Railway URL, overridable via secrets.properties.
+            val proxyUrl = secrets.getProperty("PROXY_BASE_URL", "https://katib-production-0352.up.railway.app")
+            val proxyKey = secrets.getProperty("PROXY_API_KEY", "")
+            buildConfigField("String", "PROXY_BASE_URL", "\"$proxyUrl\"")
+            buildConfigField("String", "PROXY_API_KEY", "\"$proxyKey\"")
+
+            // Use the real upload key when keystore.properties exists; otherwise fall back
+            // to debug signing so release builds still work before the keystore is created.
+            signingConfig = if (keystorePropertiesFile.exists())
+                signingConfigs.getByName("release") else signingConfigs.getByName("debug")
+
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            // TODO: point this at your deployed proxy (https://...).
-            buildConfigField("String", "PROXY_BASE_URL", "\"https://YOUR-PROXY.up.railway.app\"")
         }
     }
 

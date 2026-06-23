@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>كاتب — مساعد الكتابة العربية</title>
+  <meta name="description" content="كاتب: مساعد ذكي للكتابة بالعربية يصحّح القواعد والإملاء ويقترح بدائل لغوية في أي تطبيق." />
+  <style>
+    :root { --teal:#0A7B5E; --teal-d:#065C46; --gold:#C8960C; --ink:#1C1C1E; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "SF Arabic", "Segoe UI", "Noto Naskh Arabic", Tahoma, sans-serif;
+      color: var(--ink); background: #fff; line-height: 1.7;
+    }
+    .hero {
+      background: linear-gradient(160deg, var(--teal), var(--teal-d));
+      color: #fff; text-align: center; padding: 90px 20px 70px;
+    }
+    .hero .star { color: var(--gold); font-size: 2rem; }
+    .hero h1 { font-size: 4rem; margin: 6px 0; letter-spacing: 1px; }
+    .hero p { font-size: 1.35rem; color: #e9f3ef; max-width: 620px; margin: 8px auto 0; }
+    .badge {
+      display: inline-block; margin-top: 28px; background: var(--gold); color: #2a2100;
+      padding: 12px 26px; border-radius: 999px; font-weight: 700; text-decoration: none;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 56px 20px; }
+    h2 { color: var(--teal); text-align: center; font-size: 1.8rem; margin-bottom: 36px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+    .card {
+      background: #f5f7f6; border-radius: 18px; padding: 26px;
+      border: 1px solid #e4eae7;
+    }
+    .card .ic { font-size: 1.8rem; }
+    .card h3 { color: var(--teal); margin: 12px 0 6px; font-size: 1.2rem; }
+    .card p { color: #444; font-size: .98rem; }
+    .pricing { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+    .plan { flex: 1 1 260px; max-width: 320px; border: 2px solid #e4eae7; border-radius: 18px; padding: 26px; text-align: center; }
+    .plan.pro { border-color: var(--gold); }
+    .plan .price { font-size: 2rem; color: var(--teal); font-weight: 800; }
+    .plan ul { list-style: none; margin-top: 14px; color: #444; }
+    .plan li { padding: 4px 0; }
+    footer { background: var(--ink); color: #cfcfd2; text-align: center; padding: 40px 20px; }
+    footer a { color: var(--gold); text-decoration: none; margin: 0 10px; }
+    .en { direction: ltr; color: #9a9aa0; font-size: .85rem; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="star">✦</div>
+    <h1>كاتب</h1>
+    <p>مساعدك الذكي للكتابة بالعربية — يصحّح القواعد والإملاء ويقترح بدائل لغوية أثناء الكتابة في أي تطبيق.</p>
+    <a class="badge" href="#">قريبًا على Google Play</a>
+  </header>
+
+  <section class="wrap">
+    <h2>لماذا كاتب؟</h2>
+    <div class="grid">
+      <div class="card"><div class="ic">⌨️</div><h3>لوحة مفاتيح في كل مكان</h3><p>اكتب في الرسائل وواتساب والبريد وأي تطبيق، وكاتب يساعدك في كل مرة.</p></div>
+      <div class="card"><div class="ic">✅</div><h3>تصحيح فوري</h3><p>يكتشف أخطاء النحو والإملاء الشائعة ويقترح التصحيح بضغطة واحدة.</p></div>
+      <div class="card"><div class="ic">💡</div><h3>اقتراحات ذكية</h3><p>بدائل ومرادفات مرتبة من الأكثر رسمية إلى الأقل رسمية.</p></div>
+      <div class="card"><div class="ic">🔄</div><h3>فصحى وخليجي</h3><p>بدّل بين العربية الفصحى واللهجة الخليجية بضغطة زر.</p></div>
+      <div class="card"><div class="ic">📊</div><h3>إحصاءات الكتابة</h3><p>تابع عدد التصحيحات والاقتراحات التي استفدت منها.</p></div>
+      <div class="card"><div class="ic">🔒</div><h3>خصوصيتك أولًا</h3><p>لا نحتفظ بنصوصك على الخوادم بعد معالجتها، ولا نبيع بياناتك.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <h2>الباقات</h2>
+    <div class="pricing">
+      <div class="plan">
+        <div>مجاني</div>
+        <ul><li>حتى 30 تصحيحًا يوميًا</li><li>اقتراح أساسي</li><li>وضع الفصحى</li></ul>
+      </div>
+      <div class="plan pro">
+        <div>بريميوم</div>
+        <div class="price">14.99 <small>ر.س/شهر</small></div>
+        <ul><li>تصحيحات غير محدودة</li><li>٣ اقتراحات ومرادفات موسّعة</li><li>وضع اللهجة الخليجية</li><li>لوحة إحصاءات كاملة</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <a href="privacy-policy.html">سياسة الخصوصية</a> ·
+      <a href="mailto:support@katib.app">تواصل معنا</a>
+    </div>
+    <div class="en">© 2026 Katib · Arabic Writing Assistant</div>
+  </footer>
+</body>
+</html>
